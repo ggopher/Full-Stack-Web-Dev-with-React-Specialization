@@ -33,30 +33,30 @@ class DishDetail extends Component {
     convertDate(timestamp) {
         const date = new Date(timestamp);
         return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-      }
+    }
 
     renderComments(comments) {
-      if (comments == null || comments.length === 0) {
-        return (<div></div>);
-      }
-            const parsedComments = comments.map((comment) => {
-                return (
-                    <li>
+        if (comments == null || comments.length === 0) {
+            return (<div></div>);
+        }
+        const parsedComments = comments.map((comment) => {
+            return (
+                <li>
                     <p>{comment.comment}</p>
                     <p>-- {comment.author} {this.convertDate(comment.date)}</p>
-                    </li>
-                )
-            });
+                </li>
+            )
+        });
 
-            return (
-                <div>
+        return (
+            <div>
                 <div><h4>Comments:</h4></div>
                 <ul className="list-unstyled">
                     {parsedComments}
                 </ul>
-                </div>
-            );
-    
+            </div>
+        );
+
     }
 
 
@@ -64,17 +64,17 @@ class DishDetail extends Component {
 
     render() {
         if (this.props.selectedDish != null) {
-        return (
-            <div className="row">
-                <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.props.selectedDish)}
+            return (
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderDish(this.props.selectedDish)}
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        {this.renderComments(this.props.selectedDish.comments)}
+                    </div>
                 </div>
-                <div className="col-12 col-md-5 m-1">
-                    {this.renderComments(this.props.selectedDish.comments)}
-                </div>
-            </div>
-        );
-        } else {return (<div></div>);}
+            );
+        } else { return (<div></div>); }
     }
 }
 export default DishDetail;
