@@ -18,7 +18,7 @@ import { DISHES } from './shared/dishes';
     <div>
       <Navbar dark color="primary">
       <div className="container">
-        <NavbarBrand href="/">Gaf Maf</NavbarBrand>
+        <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
       </div>
       </Navbar>
       <Menu dishes={this.state.dishes} />
