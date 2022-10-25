@@ -41,19 +41,19 @@ class DishDetail extends Component {
       }
             const parsedComments = comments.map((comment) => {
                 return (
-                    <div key={comment.id}>
-                    {comment.comment}<br/>
-                    -- {comment.author} {this.convertDate(comment.date)}<br/><br/>
-                    </div>
+                    <li>
+                    <p>{comment.comment}</p>
+                    <p>-- {comment.author} {this.convertDate(comment.date)}</p>
+                    </li>
                 )
             });
 
             return (
                 <div>
                 <div><h4>Comments:</h4></div>
-                <div>
+                <ul className="list-unstyled">
                     {parsedComments}
-                </div>
+                </ul>
                 </div>
             );
     
